@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+
+    <style>
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .submenu.open {
+            max-height: 200px;
+        }
+
+        /* Theme transitions */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Theme toggle styles */
+        .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            border-radius: 15px;
+            background-color: #e2e8f0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dark .theme-toggle {
+            background-color: #4b5563;
+        }
+
+        .toggle-circle {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: white;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fbbf24;
+        }
+
+        .dark .toggle-circle {
+            transform: translateX(30px);
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900">
+    <!-- Header -->
+    <header class="w-full border-b border-gray-200 dark:border-gray-700">
+        <div class="p-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="myflowise.html"><img id="logo" src="innovationlab_dark.png" alt="InnovationLab icon" class="h-5 md:h-6"></a>
+            </div>
+    
+            <div class="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold text-gray-700 dark:text-white">
+                <!-- My Custom Flowise Site -->
+            </div>
+    
+            <div class="flex items-center gap-4">
+                <button class="text-gray-600 dark:text-gray-300 md:hidden">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <!-- Theme Toggle Switch -->
+                <div class="flex items-center gap-2">
+                    <div id="themeToggle" class="theme-toggle">
+                        <div class="toggle-circle">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                    </div>
+                    <span class="text-sm text-gray-600 dark:text-gray-300 hidden md:inline">Theme</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex flex-col md:flex-row h-[calc(100vh-128px)]">
+        <!-- Left Sidebar -->
+        <div class="w-full md:w-64 border-r border-gray-200 dark:border-gray-700 md:flex md:flex-col overflow-y-auto">
+            <nav class="hidden md:block p-4">
+                <div class="space-y-2">
+                    <div class="menu-item">
+                        <div class="flex items-center text-gray-700 dark:text-gray-300 justify-between cursor-pointer">
+                            <div class="flex items-center">
+                                <i class="fas fa-comments mr-3"></i>
+                                <a href="myflowise.html?flowid=1"><b>New Chat</b></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <br>
+                        <div class="flex items-center text-gray-700 dark:text-gray-300 justify-between cursor-pointer">
+                            <div class="flex items-center">
+                                <i class="fas fa-robot mr-3"></i>
+                                <span>Agents</span>
+                            </div>
+                            <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                        </div>
+                        <div class="submenu pl-8 text-gray-600 dark:text-gray-400 text-sm">
+                            <div class="py-2">
+                                <a href="myflowise.html?flowid=1">Article Writer + Web</a><br>
+                                <a href="myflowise.html?flowid=1">Language Translation</a><br> 
+                                <a href="myflowise.html?flowid=1">Marketing Ads</a><br>
+                                <a href="myflowise.html?flowid=1">UX to User Story</a>
+                        </div>
+                    </div>
+                   
+                    <div class="menu-item">
+                        <br>
+                        <div class="flex items-center text-gray-700 dark:text-gray-300 justify-between cursor-pointer">
+                            <div class="flex items-center">
+                                <i class="fas fa-book mr-3"></i>
+                                <span>Unit 1</span>
+                            </div>
+                            <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                        </div>
+                        <div class="submenu pl-8 text-gray-600 dark:text-gray-400 text-sm">
+                            <div class="py-2">
+                                <i class="fas fa-list mr-3"></i><a href="myflowise.html?flowid=a51f93e0-10ce-4892-b746-b2d39987a58b">Overview</a><br>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <br>
+                        <div class="flex items-center text-gray-700 dark:text-gray-300 justify-between cursor-pointer">
+                            <div class="flex items-center">
+                                <i class="fas fa-book mr-3"></i>
+                                <span>Unit 2</span>
+                            </div>
+                            <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                        </div>
+                        <div class="submenu pl-8 text-gray-600 dark:text-gray-400 text-sm">
+                            <div class="py-2">
+                                <i class="fas fa-list mr-3"></i><a href="myflowise.html?flowid=8facb00e-01d2-42e0-aa1b-9796d907f3e3">Overview</a><br>
+                                <i class="fas fa-question mr-3"></i><a href="myflowise.html?flowid=638454f9-4b9d-4d6e-a399-71b4450abe4b">Quiz</a>
+                            </div>  
+                        </div>
+                    </div>                   
+                    <div class="menu-item">
+                        <br>
+                        <div class="flex items-center text-gray-700 dark:text-gray-300 justify-between cursor-pointer">
+                            <div class="flex items-center">
+                                <i class="fas fa-book mr-3"></i>
+                                <span>Unit 3</span>
+                            </div>
+                            <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                        </div>
+                        <div class="submenu pl-8 text-gray-600 dark:text-gray-400 text-sm">
+                            <div class="py-2">
+                                <i class="fas fa-list mr-3"></i><a href="myflowise.html?flowid=f90d2889-43e0-41b6-9c6f-0ad70af13010">Overview</a><br>
+                                <i class="fas fa-walking mr-3"></i><a href="https://scribehow.com/shared/Walkthrough_3-1_Create_SimpleChat__OVxRtUIuTwylalGO23UApA" target="_wt">Walkthrough 3-1</a><br>
+                                <i class="fas fa-walking mr-3"></i><a href="https://scribehow.com/shared/Walkthrough_3-2_Access_Your_Agent_From_Your_Website__xXJvoIzcTAKbZ7Kql9DieQ" target="_wt">Walkthrough 3-2</a><br>
+                                <i class="fas fa-flask mr-3"></i><a href="https://scribehow.com/shared/Google_Workflow__59x2qwr1TYS-s2libR7i3g" target="_wt">Lab 3</a><br>
+                                <i class="fas fa-question mr-3"></i><a href="myflowise.html?flowid=ec377bea-837c-49dc-bde5-92c9ebeb1f24">Quiz</a>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <br>
+                        <div class="flex items-center text-gray-700 dark:text-gray-300 justify-between cursor-pointer">
+                            <div class="flex items-center">
+                                <i class="fas fa-book mr-3"></i>
+                                <span>Unit 4</span>
+                            </div>
+                            <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                        </div>
+                        <div class="submenu pl-8 text-gray-600 dark:text-gray-400 text-sm">
+                            <div class="py-2">
+                                <i class="fas fa-list mr-3"></i><a href="myflowise.html?flowid=5b57c548-02bb-43fa-8476-be75bc54605d">Overview</a><br>
+                                <i class="fas fa-walking mr-3"></i><a href="https://scribehow.com/shared/Walkthrough_4-1_Creating_Agents_with_Tools_Added_From_the_Marketplace__-Lkn5Aa7QLqkARPPmfuzow" target="_wt">Walkthrough 4-1</a><br>
+                                <i class="fas fa-walking mr-3"></i><a href="https://scribehow.com/shared/Walkthrough_4-2_Deploying_Agents_as_Embedded_PopUps__Wx3i0kGTQLKu7Cc3ivGWQQ" target="_wt">Walkthrough 4-2</a><br>
+                                <i class="fas fa-walking mr-3"></i><a href="https://scribehow.com/shared/Walkthrough_4-3_Creating_a_Bing_Search_Tool___dP7oJP6TPOAN8gfvKotdA" target="_wt">Walkthrough 4-3</a><br>
+                                <i class="fas fa-walking mr-3"></i><a href="https://scribehow.com/shared/Walkthrough_4-4_Agents_calling_Agents__3JwT2y-jT0uMb-2JY8nC5g" target="_wt">Walkthrough 4-4</a><br>
+                                <i class="fas fa-flask mr-3"></i><a href="https://scribehow.com/shared/Lab_4__xjgC9OYLRTinebDqD0EYzw" target="_wt">Lab 4</a><br>
+                                <i class="fas fa-question mr-3"></i><a href="myflowise.html?flowid=1a24dc37-95c2-4a6d-b5bd-bff5d754f1c2">Quiz</a>
+                               
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <br>
+                        <div class="flex items-center text-gray-700 dark:text-gray-300 justify-between cursor-pointer">
+                            <div class="flex items-center">
+                                <i class="fas fa-link mr-3"></i>
+                                <span>Links</span>
+                            </div>
+                            <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                        </div>
+                        <div class="submenu pl-8 text-gray-600 dark:text-gray-400 text-sm">
+                            <a href="https://flowiseai.dev.thermofisher.ai" target="_flow">Flowise</a><br>
+                            <a href="https://www.youtube.com/watch?v=tD6fwQyUIJE&list=PL4HikwTaYE0HDOuXMm5sU6DH6_ZrHBLSJ" target="_videos">Flowise Videos</a><br>
+                            <a href="https://thermofisher.sharepoint.com/sites/GenerativeAICenterofExcellence/SitePages/Gene.AI/Gene.AI.aspx" target="_about">iConnect Site</a><br>
+                            <a href="http://geneaipilot.thermofisher.com/" target="_hub">Innovation Hub</a><br>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="menu-item">
+                    <br>
+                    <div class="flex items-center text-gray-700 dark:text-gray-300 justify-between cursor-pointer">
+                        <div class="flex items-center">
+                            <i class="fas fa-smile mr-3"></i>
+                            <span>Extra Stuff</span>
+                        </div>
+                        <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                    </div>
+                    <div class="submenu pl-8 text-gray-600 dark:text-gray-400 text-sm">
+                        <a href="myflowise.html?flowid=2">Gene.AI Search</a><br>
+                        <a href="myflowise.html?flowid=3">News</a><br>
+                        
+                    </div>
+                </div>
+                -->
+            </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-y-auto">
+            <iframe class="subform" id="nobackground" name="nobackground" src="" width="100%" height="100%" frameborder="0" scrolling="yes" allowtransparency="true"></iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-gray-200 dark:border-gray-700">
+        <div class="p-4 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-gray-600 dark:text-gray-400 space-y-2 md:space-y-0">
+            <div class="text-center md:text-left">
+                © Copyright 2024 InnovationLab. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to get URL parameters
+            function getUrlParameter(flowid) {
+                flowid = flowid.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + flowid + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+    
+            // Get the 'flowid' parameter from the URL
+            var flowid = getUrlParameter('flowid');
+            
+            // If the 'flowid' parameter exists, update the iframe src
+            if (flowid == 1) {
+                document.getElementById('nobackground').src = 'todo.html';
+            } else if (flowid == 2){ 
+                document.getElementById('nobackground').src = 'https://geneai-ihub-tool-web-app-perplexica2c9447e8.azurewebsites.net/';  
+            } else if (flowid == 3){ 
+                document.getElementById('nobackground').src = 'https://storage.googleapis.com/thermo-templates/thermo-fisher-scientific-ai-weekly-news.html';           
+            } else if (flowid){ 
+                document.getElementById('nobackground').src = 'https://flowiseai.dev.thermofisher.ai/chatbot/' + flowid;
+            } else { 
+                document.getElementById('nobackground').src = 'welcome.html';
+            } 
+    
+            // Mobile menu toggle
+            document.querySelector('.fa-bars').addEventListener('click', function() {
+                const nav = document.querySelector('nav');
+                nav.classList.toggle('hidden');
+            });
+    
+            // Dropdown menus
+            document.querySelectorAll('.menu-item').forEach(item => {
+                const trigger = item.querySelector('.flex.items-center.justify-between');
+                const submenu = item.querySelector('.submenu');
+                const icon = item.querySelector('.fa-chevron-down');
+                
+                trigger.addEventListener('click', () => {
+                    submenu.classList.toggle('open');
+                    icon.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
+                });
+            });
+    
+            // Theme Toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const toggleCircle = themeToggle.querySelector('.toggle-circle');
+            const logo = document.getElementById('logo');
+    
+            // Check for saved theme preference
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+                toggleCircle.innerHTML = '<i class="fas fa-moon"></i>';
+                logo.src = 'innovationlab_dark.png';
+            } else {
+                html.classList.remove('dark');
+                toggleCircle.innerHTML = '<i class="fas fa-sun"></i>';
+                logo.src = 'innovationlab_lite.png';
+            }
+    
+            // Theme toggle click handler
+            themeToggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                
+                if (html.classList.contains('dark')) {
+                    localStorage.theme = 'dark';
+                    toggleCircle.innerHTML = '<i class="fas fa-moon"></i>';
+                    logo.src = 'innovationlab_dark.png';
+                } else {
+                    localStorage.theme = 'light';
+                    toggleCircle.innerHTML = '<i class="fas fa-sun"></i>';
+                    logo.src = 'innovationlab_lite.png';
+                }
+            });
+    
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                if (!('theme' in localStorage)) {
+                    if (e.matches) {
+                        html.classList.add('dark');
+                        toggleCircle.innerHTML = '<i class="fas fa-moon"></i>';
+                        logo.src = 'innovationlab_dark.png';
+                    } else {
+                        html.classList.remove('dark');
+                        toggleCircle.innerHTML = '<i class="fas fa-sun"></i>';
+                        logo.src = 'innovationlab_lite.png';
+                    }
+                }
+            });
+        });
+    </script>
+    
+<!-- Put embed popup code here -->
+
+</body>
+</html>
