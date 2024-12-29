@@ -119,7 +119,7 @@
                         </div>
                         <div class="submenu pl-8 text-gray-600 dark:text-gray-400 text-sm">
                             <div class="py-2">
-                                <a href="myflowise.html?flowid=1">Article Writer + Web</a><br>
+                                <a href="myflowise.html?flowid=2">Talk to Ace</a><br>
                                 <a href="myflowise.html?flowid=1">UX to User Story</a><br>
                                 <hr style="border: none; border-top: 1px dotted">
                                 <!-- Lab 3 -->
@@ -184,6 +184,8 @@
             // If the 'flowid' parameter exists, update the iframe src
             if (flowid == 1) {
                 document.getElementById('nobackground').src = 'todo.html'; 
+            } else if (flowid == 2){ 
+                document.getElementById('nobackground').src = 'talk.html'; 
             } else if (flowid == 3){ 
                 document.getElementById('nobackground').src = 'https://storage.googleapis.com/thermo-templates/thermo-fisher-scientific-ai-weekly-news.html';           
             } else if (flowid){ 
